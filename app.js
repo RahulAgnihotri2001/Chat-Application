@@ -7,8 +7,11 @@ mongoose
 
 const app = require("express")();
 const http = require("http").Server(app);
-PORT = process.env.PORT || 3000;
 
+const userRoute = require("./routes/userRoutes");
+app.use("/", userRoute);
+
+PORT = process.env.PORT || 3000;
 http.listen(PORT, () => {
   console.log(`Server Running on port ${PORT}`);
 });
